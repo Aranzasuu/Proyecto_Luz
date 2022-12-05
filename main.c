@@ -6,8 +6,12 @@
 
 int main(){
 
+    // Declaración de variables
     Red *Usuarios = crearRed();
 
+    printf("          BIENVENIDX !!\n\n");
+    
+    // Ingreso a la función que contiene todas las funcionalidades del programa
     menu(Usuarios);
     
     return 0;

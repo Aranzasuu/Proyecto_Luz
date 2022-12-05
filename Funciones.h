@@ -2,16 +2,19 @@
 #define Funciones_h 
 #include <stdbool.h>
 #include "Map.h"
+#include "List.h"
 
 typedef struct Usuario
 {
     char Nombre[100];
-    int numParcela;
+    char numParcela[100];
     int numeroLectura;
     char correo[100];
     int telefono;
-    int gastoMesA;
+    int gastoAnterior;
+    int gastoTotal;
     int gastoActual;
+    int pago;
 }Usuario;
 
 
@@ -19,8 +22,9 @@ typedef struct Red
 {
     Map *totalUsuarios;
     int cantParcelas;
-}Red;
-
+    List *gastoCondominio;
+    int gastoBoleta;
+} Red;
 
 
 Red *crearRed();
@@ -31,7 +35,10 @@ void impresionMenu();
 
 void guardarUsuarios(Red *Usuarios);
 Usuario *crearUsuario();
-bool validarInfo(Map *totalUsuarios, int numeroP);
-void mostrarUsuario(Map *totalUsuarios, int numeroP);
+bool validarInfo(Map *totalUsuarios, char *numeroP);
+void mostrarUsuario(Map *totalUsuarios, char *numeroP);
+
+void calcularGasto(Red *Usuarios);
+void mostrarBoleta(Red *Usuarios);
 
 #endif
